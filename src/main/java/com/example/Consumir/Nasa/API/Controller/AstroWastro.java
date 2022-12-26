@@ -31,5 +31,12 @@ public class AstroWastro {
         List<Astro> as= this.apiService.buscarFechas(d1,d2);
         return new ResponseEntity<List<Astro>>(as,HttpStatus.OK);
     }
+
+
+    @GetMapping("/cantidad/{id}")
+    public ResponseEntity<List<Astro>> devolverCantidad(@PathVariable(value = "id") String cantidad){
+        List<Astro> as = this.apiService.listarCantidad(cantidad);
+        return new ResponseEntity<List<Astro>>(as,HttpStatus.OK);
+    }
 }
 

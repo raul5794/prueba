@@ -31,4 +31,15 @@ public class ApiService {
                         .build())
                 .retrieve().bodyToFlux(Astro.class).collectList().block();
     }
+
+    public List<Astro> listarCantidad(String cantidad){
+        return this.webClient.get().uri(uriBuilder -> uriBuilder
+                .path("/")
+                .queryParam("count",cantidad)
+                .build())
+                .retrieve()
+                .bodyToFlux(Astro.class)
+                .collectList()
+                .block();
+    }
 }
